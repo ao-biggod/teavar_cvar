@@ -1,0 +1,3 @@
+﻿mode,umcf,lambda_physical,phys_status,phys_optimal,phys_cost,phys_node_cvar,phys_link_cvar,phys_placement,teavar_status,teavar_optimal,teavar_cost,CVaR_SLA,CVaR_sf,teavar_placement
+hub_radial,0,50.0,2,1,4570.000000,38.000000,0.200000,"0:8, 1:2",2,1,3810.000000,0.000000,0.913907,0:10
+UMCF,1,50.0,2,1,4890.000000,36.000000,0.707071,"0:7, 1:3",2,1,4110.000000,0.000000,0.913907,0:10

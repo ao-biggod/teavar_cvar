@@ -1,0 +1,32 @@
+B4 数据集调整说明（适配算力感知 / CVaR 实验方向）
+================================================
+
+1) topology.txt
+   - 链路容量：在保持 B4 原有拓扑与方向的前提下，对每条有向边赋予
+     3.8e6~6.17e6 量级的异质容量（原统一 5e6），便于研究拥塞与风险
+     在“瓶颈链路”上的分布，而非均匀网络。
+   - prob_failure 列：改为随端点变化的异质数值（约 1.5e-3~4.5e-3）。
+     注意：当前仓库 main.py 中 TEAVAR 场景概率来自 util.weibull_probs，
+     并不读取本列；该列供文档、对齐 Copo/TEAVAR 叙事或后续脚本读取。
+
+2) node_compute_resources.csv（新增，可选）
+   - 为 12 个节点给出与 duibi 玩具算例同构的语义：CPU/GPU/HBM 三类
+     容量上界与单价（任意单位，只要与优化模型一致即可）。
+   - role 字段：edge_pop / aggregation / core，便于以后做“放置偏好”
+     或分层场景。
+   - 现有 parsers.read_topology / read_demand 不读取本文件；不影响
+     原有 TEAVAR_Gurobi 复现命令。在算力联合优化脚本中可自行 csv 加载。
+
+3) demand.txt / nodes.txt / paths/*
+   - 未修改，保证与原 TEAVAR 实验矩阵接口一致。
+
+4) main.py 联合 CVaR（新）
+   - 运行 B4 + duibi physical + teavar_sla：在项目根目录执行
+     python main.py --mode joint --topology B4
+   - 常用参数：--joint-num-tasks、--joint-demand-row、--joint-k-paths、
+     --joint-lambdas、--joint-omega、--joint-min-off-hub、--joint-stress-zero-s1、--hub
+   - `--joint-demand-scale`：在换算得到的任务 b_in/b_out 上再乘该系数（默认 1；>1 加压网络）
+   - joint 默认 `--joint-k-paths=4`（B4 上多于 2 条短路更利于绕开风险边）
+
+若需完全恢复旧版均匀容量与 0.004 故障列，可从版本管理历史中取回
+topology.txt 首版。

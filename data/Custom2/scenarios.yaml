@@ -1,0 +1,38 @@
+# Custom2 故障场景定义（5 节点 / 14 有向边）
+# 注意：demand.txt 为空，使用 synthetic gravity model；节点少，hub 可能无出向需求（loader 自动换 hub）
+
+scenarios:
+  - id: 0
+    name: 全通（nominal）
+    probability: 0.6
+    description: "所有链路可用率=1.0，算力容量=名义值"
+
+  - id: 1
+    name: 链路中断（link_failure）
+    probability: 0.3
+    description: "topology.txt 中 prob_failure 最高的 2 条有向边置为断链"
+    link_failure:
+      method: top_k_by_prob_failure
+      k: 2
+
+  - id: 2
+    name: 算力降额（compute_degradation）
+    probability: 0.1
+    description: "aggregation 角色节点所有资源维度容量降至名义值的 60%"
+    compute_degradation:
+      target_role: aggregation
+      capacity_factor: 0.60
+
+task_w_templates:
+  - {CPU: 4.0, GPU: 2.0, HBM: 8.0}
+  - {CPU: 8.0, GPU: 0.5, HBM: 4.0}
+  - {CPU: 2.0, GPU: 1.0, HBM: 32.0}
+
+cvar:
+  beta_loss: 0.95
+  beta_sf: 0.95
+
+demand_scaling:
+  downscale: 2.0
+  default_scale: 25.0
+  note: "demand 为空；5 节点最小拓扑，仅适合调试/单元测试"

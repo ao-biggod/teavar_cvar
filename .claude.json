@@ -1,0 +1,13 @@
+﻿{
+  "enabledPlugins": {
+    "fullstack-dev-skills@fullstack-dev-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "fullstack-dev-skills": {
+      "source": {
+        "repo": "jeffallan/claude-skills",
+        "source": "github"
+      }
+    }
+  }
+}

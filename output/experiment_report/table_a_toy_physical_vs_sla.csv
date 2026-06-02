@@ -1,0 +1,7 @@
+﻿block,lambda_physical,lambda_sla,lambda_sf,status,optimal,cost,node_cvar,link_cvar,CVaR_SLA,CVaR_sf,placement
+physical_model_A,0.5,,,2,1,3810.000000,70.000000,0.000000,,,0:10
+physical_model_A,5.0,,,2,1,3810.000000,70.000000,0.000000,,,0:10
+physical_model_A,50.0,,,2,1,4570.000000,38.000000,0.200000,,,"0:8, 1:2"
+physical_model_A,500.0,,,2,1,14140.000000,6.000000,0.800000,,,"0:2, 1:2, 2:6"
+physical_model_A,5000.0,,,2,1,18850.000000,0.586667,0.500000,,,"2:5, 3:5"
+TEAVAR_A,,0.5,0.5,2,1,3810.000000,,,0.000000,0.913907,0:10

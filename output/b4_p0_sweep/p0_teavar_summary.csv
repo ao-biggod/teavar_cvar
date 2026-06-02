@@ -1,0 +1,2 @@
+﻿case,SLA_min,SLA_max,cost_min,cost_max,cost_spread,lambda_steps_changed,lambda_effective
+virtual_sigma090,0.1,0.1,100.8586,100.945,0.08639999999999759,1,1

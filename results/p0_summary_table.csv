@@ -1,0 +1,4 @@
+num_tasks,status_summary,optimal_points,cvar_sla_min,cvar_sla_max,cvar_sf_min,cvar_sf_max,cost_min,cost_max,acceptance,interpretation
+8,25/25 OPTIMAL,25,0.04000000000000001,0.1,0.018000000000000002,0.03,219.0806838752748,243.99593806946487,PASS,"main frontier, non-degenerate, PASS"
+11,9/9 OPTIMAL,9,0.04000000000000001,0.06,0.04792294807370184,0.06688442211055276,317.18700992345833,317.18700992345833,PASS,"capacity boundary, feasible, cost-flat"
+12,0/18 frontier feasible; Model A feasible in 0/18; compute_assignment_infeasible in 18/18,0,,,,,,,N/A (no frontier),"compute placement infeasible, structural ceiling"

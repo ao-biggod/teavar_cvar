@@ -1,0 +1,4 @@
+﻿scenario,stress,umcf,k_paths,lambda_physical,physical_A_status,physical_A_optimal,physical_cost,TEAVAR_A_status,TEAVAR_A_optimal,TEAVAR_cost,CVaR_SLA,CVaR_sf,placement_phys,placement_teavar
+baseline_no_stress,0,0,4,50.0,2,1,315.433062,2,1,308.663531,0.000000,0.056097,"2:1, 3:3, 5:1, 6:2, 7:1, 9:1, 10:1","3:3, 5:1, 6:3, 7:1, 9:2"
+stress_no_umcf,1,0,4,50.0,4,0,,2,1,308.663531,1.000000,0.056097,,"3:3, 5:1, 6:3, 7:1, 9:2"
+stress_umcf,1,1,4,50.0,2,1,315.334468,2,1,308.578963,0.000000,0.056097,"2:1, 3:3, 5:1, 6:2, 7:1, 9:1, 10:1","3:3, 5:1, 6:3, 7:1, 9:2"

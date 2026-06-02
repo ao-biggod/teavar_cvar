@@ -1,0 +1,6 @@
+node_id,node_name,cpu_capacity_units,gpu_capacity_units,hbm_capacity_units,price_cpu,price_gpu,price_hbm,role
+1,node1,250.2,94.4,40.5,0.75,3.001,1.501,core
+2,node2,41.7,14.0,7.3,1.375,5.498,2.749,edge_pop
+3,node3,57.6,20.7,9.7,1.53,6.121,3.06,edge_pop
+4,node4,120.8,36.3,21.2,0.921,3.684,1.842,aggregation
+5,node5,247.7,84.2,42.8,0.787,3.148,1.574,core
