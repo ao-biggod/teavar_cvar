@@ -1,11 +1,9 @@
-# Model A/C 组件级风险 Toy 实验（6/11 周报）
-
-本目录从 TEAVAR 主仓库中**单独抽取**，对应以下两份文档中的小规模验证实验，便于上传 GitHub 供老师审阅：
+# Model A/C 组件级风险 Toy 实验（6/11）
 
 | 文档 | 说明 |
 |:--|:--|
 | [`docs/model_ac_建模说明.md`](docs/model_ac_建模说明.md) | Model A（加权目标）与 Model C（风险预算）的完整 MILP 建模 |
-| [`reports/weekly_report_20250611.md`](reports/weekly_report_20250611.md) | 6 月 11 日实验周报：ComponentRisk toy、AAA/BBB/CCC/ACC 等结果 |
+| [`reports/工作汇报611.md`](reports/工作汇报611.md) | 6 月 11 日实验周报：ComponentRisk toy、AAA/BBB/CCC/ACC 等结果 |
 
 ## 实验内容概览
 
@@ -22,7 +20,7 @@ model_ac_component_risk_release/
 ├── requirements.txt                   # gurobipy
 ├── cvar_compare.py                    # MILP 内核（CVaR 约束、Model A/C 构建）
 ├── teavar_framework_models.py         # build_teavar_model_a / build_teavar_model_c
-├── teavar_data.py                     # 实例数据结构（替代主仓库 duibi.UltraComplexData）
+├── teavar_data.py                     # 实例数据结构
 ├── duibi_metrics.py                   # 路径、成本、流量锚点
 ├── toy_instances.py                   # ComponentRisk toy 及 Tier-0 小实例
 ├── component_scenario_generator.py    # 组件级故障 → σ、C_s
@@ -32,7 +30,7 @@ model_ac_component_risk_release/
 │   ├── model_ac_建模说明.md
 │   └── exact_validation.md            # 精确验证设计说明
 ├── reports/
-│   └── weekly_report_20250611.md
+│   └── 工作汇报611.md
 ├── scripts/
 │   └── reproduce_weekly_experiments.py  # 复现周报 §4 扫描表格
 └── tests/
@@ -77,7 +75,7 @@ python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/reproduce_weekly_experiments.py
 ```
 
-脚本会打印 Model A 的 $\lambda$ 扫描、Model C 的 $\Gamma$ 代表点（含 ACC 区间），与 [`reports/weekly_report_20250611.md`](reports/weekly_report_20250611.md) §4.3–§4.4 对应。终端输出使用英文标签（如 `mid ACC`），避免 Windows GBK 控制台中文乱码；脚本启动时会按系统 locale 配置 stdout 编码。
+脚本会打印 Model A 的 $\lambda$ 扫描、Model C 的 $\Gamma$ 代表点（含 ACC 区间），与 [`工作汇报611.md`](reports/工作汇报611.md) §4.3–§4.4 对应。终端输出使用英文标签（如 `mid ACC`），避免 Windows GBK 控制台中文乱码；脚本启动时会按系统 locale 配置 stdout 编码。
 
 ## 代码入口对照
 
@@ -97,7 +95,7 @@ python scripts/reproduce_weekly_experiments.py
 
 审阅时可按顺序阅读：
 
-1. `reports/weekly_report_20250611.md` — 实验动机与结论  
+1. `reports/工作汇报611.md` — 实验动机与结论  
 2. `docs/model_ac_建模说明.md` — 数学模型  
 3. `tests/test_combined_component_risk_toy.py` — 可执行验证  
 4. `scripts/reproduce_weekly_experiments.py` — 数值复现
