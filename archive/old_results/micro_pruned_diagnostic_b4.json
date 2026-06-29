@@ -1,0 +1,1355 @@
+{
+  "topology": "B4",
+  "routing_mode": "per_task_od",
+  "scenario_mode": "micro_pruned",
+  "num_tasks": 4,
+  "num_scenarios": 71,
+  "gamma_sla": 1.0,
+  "gamma_sf": 1.0,
+  "beta_sla": 0.95,
+  "beta_sf": 0.95,
+  "D_ref": 238.8,
+  "solver_status": "OPTIMAL",
+  "objective": -3825.5304516808874,
+  "cost_p": 86.94,
+  "cost_b": 1.1819249103515526,
+  "cost_total": 88.12192491035155,
+  "expected_delivered": 3913.6523765912398,
+  "cvar_sla_variable": 1.0000000000001035,
+  "cvar_sf_variable": 1.0,
+  "zeta_sla_variable": 0.0,
+  "zeta_sf_variable": -0.0397822445561149,
+  "cvar_sla_posthoc": 0.41307377185838995,
+  "cvar_sf_posthoc": 0.0,
+  "posthoc_cvar_sla": 0.41307377185838995,
+  "posthoc_cvar_sf": 0.0,
+  "posthoc_mean_sla_loss": 0.020653688592919515,
+  "posthoc_mean_sf_loss": 0.0,
+  "posthoc_var_sla": 0.0,
+  "posthoc_var_sf": 0.0,
+  "zeta_sla_posthoc": 0.0,
+  "zeta_sf_posthoc": 0.0,
+  "cvar_sla_var_matches_posthoc": false,
+  "cvar_sf_var_matches_posthoc": false,
+  "u_sla_all_zero": false,
+  "zeta_sla_near_one": false,
+  "zeta_sf_near_one": false,
+  "cvar_sla_binds_gamma": true,
+  "cvar_sf_binds_gamma": true,
+  "placement": {
+    "0": 4,
+    "1": 5,
+    "2": 6,
+    "3": 2
+  },
+  "per_scenario_losses": [
+    {
+      "scenario_id": 38,
+      "prob": 0.00316670322708329,
+      "failed_edges": [
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 8.208712421039001
+    },
+    {
+      "scenario_id": 37,
+      "prob": 0.0029293461675119143,
+      "failed_edges": [
+        [
+          9,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 24,
+      "prob": 0.002856338135520979,
+      "failed_edges": [
+        [
+          5,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 16,
+      "prob": 0.0021451234441019814,
+      "failed_edges": [
+        [
+          4,
+          5
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 19,
+      "prob": 0.002145123444101981,
+      "failed_edges": [
+        [
+          3,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 29,
+      "prob": 0.001981154882494306,
+      "failed_edges": [
+        [
+          7,
+          9
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 33,
+      "prob": 0.0019811548824943057,
+      "failed_edges": [
+        [
+          6,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 7,
+      "prob": 0.0016715978387962568,
+      "failed_edges": [
+        [
+          5,
+          2
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 9,
+      "prob": 0.0016715978387962568,
+      "failed_edges": [
+        [
+          4,
+          3
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 69,
+      "prob": 1.1058611197216161e-05,
+      "failed_edges": [
+        [
+          11,
+          10
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 65,
+      "prob": 1.0803522950113571e-05,
+      "failed_edges": [
+        [
+          6,
+          7
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 63,
+      "prob": 1.080352295011357e-05,
+      "failed_edges": [
+        [
+          7,
+          6
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 56,
+      "prob": 1.0548475653084768e-05,
+      "failed_edges": [
+        [
+          2,
+          3
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 45,
+      "prob": 1.0548475653084766e-05,
+      "failed_edges": [
+        [
+          4,
+          1
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 51,
+      "prob": 1.0548475653084766e-05,
+      "failed_edges": [
+        [
+          3,
+          2
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 60,
+      "prob": 1.0548475653084766e-05,
+      "failed_edges": [
+        [
+          1,
+          4
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 70,
+      "prob": 1.0229724102819273e-05,
+      "failed_edges": [
+        [
+          9,
+          11
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 67,
+      "prob": 1.0229724102819271e-05,
+      "failed_edges": [
+        [
+          11,
+          9
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 68,
+      "prob": 1.0229724102819271e-05,
+      "failed_edges": [
+        [
+          11,
+          10
+        ],
+        [
+          9,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 0,
+      "prob": 0.9068054884635173,
+      "failed_edges": [],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 36,
+      "prob": 0.00316670322708329,
+      "failed_edges": [
+        [
+          11,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 8.208712421039001
+    },
+    {
+      "scenario_id": 25,
+      "prob": 0.003093657094898614,
+      "failed_edges": [
+        [
+          6,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 21,
+      "prob": 0.0030936570948986134,
+      "failed_edges": [
+        [
+          7,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 8,
+      "prob": 0.003020622689026446,
+      "failed_edges": [
+        [
+          2,
+          3
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 4,
+      "prob": 0.0030206226890264454,
+      "failed_edges": [
+        [
+          4,
+          1
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 6,
+      "prob": 0.0030206226890264454,
+      "failed_edges": [
+        [
+          3,
+          2
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 12,
+      "prob": 0.0030206226890264454,
+      "failed_edges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 32,
+      "prob": 0.002929346167511914,
+      "failed_edges": [
+        [
+          11,
+          9
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 18,
+      "prob": 0.002856338135520979,
+      "failed_edges": [
+        [
+          7,
+          5
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 31,
+      "prob": 0.0026921129000361177,
+      "failed_edges": [
+        [
+          10,
+          9
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 35,
+      "prob": 0.0026921129000361177,
+      "failed_edges": [
+        [
+          9,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 10.9008472143542,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 20,
+      "prob": 0.0026191429384376298,
+      "failed_edges": [
+        [
+          5,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 17,
+      "prob": 0.0026191429384376293,
+      "failed_edges": [
+        [
+          6,
+          5
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 28,
+      "prob": 0.0024550033278366557,
+      "failed_edges": [
+        [
+          10,
+          8
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 34,
+      "prob": 0.0024550033278366557,
+      "failed_edges": [
+        [
+          8,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 11,
+      "prob": 0.0023820714068603895,
+      "failed_edges": [
+        [
+          7,
+          3
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 23,
+      "prob": 0.002382071406860389,
+      "failed_edges": [
+        [
+          3,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 2,
+      "prob": 0.00230915118470649,
+      "failed_edges": [
+        [
+          2,
+          0
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 5,
+      "prob": 0.0023091511847064894,
+      "failed_edges": [
+        [
+          0,
+          2
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 27,
+      "prob": 0.002218017354195218,
+      "failed_edges": [
+        [
+          9,
+          8
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 30,
+      "prob": 0.002218017354195218,
+      "failed_edges": [
+        [
+          8,
+          9
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 10,
+      "prob": 0.002145123444101982,
+      "failed_edges": [
+        [
+          6,
+          3
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 14,
+      "prob": 0.0021451234441019814,
+      "failed_edges": [
+        [
+          5,
+          4
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 1,
+      "prob": 0.0020722412236868245,
+      "failed_edges": [
+        [
+          1,
+          0
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 3,
+      "prob": 0.002072241223686824,
+      "failed_edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 22,
+      "prob": 0.001981154882494306,
+      "failed_edges": [
+        [
+          10,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 26,
+      "prob": 0.001981154882494306,
+      "failed_edges": [
+        [
+          9,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 13,
+      "prob": 0.001671597838796257,
+      "failed_edges": [
+        [
+          3,
+          4
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 15,
+      "prob": 0.0016715978387962566,
+      "failed_edges": [
+        [
+          2,
+          5
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 64,
+      "prob": 1.0803522950113571e-05,
+      "failed_edges": [
+        [
+          6,
+          7
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 62,
+      "prob": 1.080352295011357e-05,
+      "failed_edges": [
+        [
+          7,
+          6
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 61,
+      "prob": 1.0554318806597716e-05,
+      "failed_edges": [
+        [
+          7,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 55,
+      "prob": 1.0548475653084768e-05,
+      "failed_edges": [
+        [
+          2,
+          3
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 44,
+      "prob": 1.0548475653084766e-05,
+      "failed_edges": [
+        [
+          4,
+          1
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 50,
+      "prob": 1.0548475653084766e-05,
+      "failed_edges": [
+        [
+          3,
+          2
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 59,
+      "prob": 1.0548475653084766e-05,
+      "failed_edges": [
+        [
+          1,
+          4
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 53,
+      "prob": 1.0305154668563027e-05,
+      "failed_edges": [
+        [
+          2,
+          3
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 42,
+      "prob": 1.0305154668563026e-05,
+      "failed_edges": [
+        [
+          4,
+          1
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 48,
+      "prob": 1.0305154668563026e-05,
+      "failed_edges": [
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 54,
+      "prob": 1.0305154668563026e-05,
+      "failed_edges": [
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 57,
+      "prob": 1.0305154668563026e-05,
+      "failed_edges": [
+        [
+          1,
+          4
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 43,
+      "prob": 1.0305154668563024e-05,
+      "failed_edges": [
+        [
+          4,
+          1
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 49,
+      "prob": 1.0305154668563024e-05,
+      "failed_edges": [
+        [
+          3,
+          2
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 58,
+      "prob": 1.0305154668563024e-05,
+      "failed_edges": [
+        [
+          1,
+          4
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 66,
+      "prob": 1.022972410281927e-05,
+      "failed_edges": [
+        [
+          11,
+          9
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 39,
+      "prob": 1.0061872745081468e-05,
+      "failed_edges": [
+        [
+          4,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 52,
+      "prob": 1.0061872745081468e-05,
+      "failed_edges": [
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 40,
+      "prob": 1.0061872745081466e-05,
+      "failed_edges": [
+        [
+          4,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 41,
+      "prob": 1.0061872745081466e-05,
+      "failed_edges": [
+        [
+          4,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 46,
+      "prob": 1.0061872745081466e-05,
+      "failed_edges": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 47,
+      "prob": 1.0061872745081466e-05,
+      "failed_edges": [
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "sla_loss_posthoc": 0.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 0.0,
+      "phi_sf_var": 0.0
+    }
+  ],
+  "worst_10_scenarios": [
+    {
+      "scenario_id": 38,
+      "prob": 0.00316670322708329,
+      "failed_edges": [
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 8.208712421039001
+    },
+    {
+      "scenario_id": 37,
+      "prob": 0.0029293461675119143,
+      "failed_edges": [
+        [
+          9,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 24,
+      "prob": 0.002856338135520979,
+      "failed_edges": [
+        [
+          5,
+          7
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 16,
+      "prob": 0.0021451234441019814,
+      "failed_edges": [
+        [
+          4,
+          5
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 19,
+      "prob": 0.002145123444101981,
+      "failed_edges": [
+        [
+          3,
+          6
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 29,
+      "prob": 0.001981154882494306,
+      "failed_edges": [
+        [
+          7,
+          9
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 33,
+      "prob": 0.0019811548824943057,
+      "failed_edges": [
+        [
+          6,
+          10
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 7,
+      "prob": 0.0016715978387962568,
+      "failed_edges": [
+        [
+          5,
+          2
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 9,
+      "prob": 0.0016715978387962568,
+      "failed_edges": [
+        [
+          4,
+          3
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    },
+    {
+      "scenario_id": 69,
+      "prob": 1.1058611197216161e-05,
+      "failed_edges": [
+        [
+          11,
+          10
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "sla_loss_posthoc": 1.0,
+      "compute_loss_posthoc": 0.0,
+      "u_sla_var": 1.0,
+      "phi_sf_var": 0.0
+    }
+  ],
+  "worst_scenario_id": 38,
+  "tasks_no_ingress_path_worst": [],
+  "tasks_no_egress_path_worst": [],
+  "task_delivered_worst_scenario": {
+    "0": {
+      "placed_node": 4,
+      "rin": 1145.2151381275,
+      "rout": 0.0,
+      "delivered_ratio_in": 1.0,
+      "delivered_ratio_out": 0.0,
+      "sla_loss_worst_scenario": 1.0
+    },
+    "1": {
+      "placed_node": 5,
+      "rin": 697.8460905245,
+      "rout": 348.92304526225,
+      "delivered_ratio_in": 1.0,
+      "delivered_ratio_out": 1.0,
+      "sla_loss_worst_scenario": 0.0
+    },
+    "2": {
+      "placed_node": 6,
+      "rin": 418.526892605,
+      "rout": 209.2634463025,
+      "delivered_ratio_in": 1.0,
+      "delivered_ratio_out": 1.0,
+      "sla_loss_worst_scenario": 0.0
+    },
+    "3": {
+      "placed_node": 2,
+      "rin": 355.0281041175,
+      "rout": 177.51405205875,
+      "delivered_ratio_in": 1.0,
+      "delivered_ratio_out": 1.0,
+      "sla_loss_worst_scenario": 0.0
+    }
+  },
+  "interpretation": {
+    "cvar_sla_saturation": "Check per-scenario SLA losses vs variable u_sla.",
+    "cvar_sf_saturation": "Gamma_SF=1.0 binds; phi_sf may be loose under constraint-only CVaR.",
+    "real_shortfall_sla": 1.0,
+    "real_shortfall_compute": 0.0,
+    "mean_sla_loss": 0.020653688592919515,
+    "mean_compute_loss": 0.0
+  }
+}

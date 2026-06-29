@@ -32,6 +32,26 @@
 | `legacy/duibi_p0_model_ac/b4_joint_data.py` | B4/多拓扑数据加载器 |
 | `legacy/duibi_p0_model_ac/toy_instances.py` | 旧确定性玩具（单路径，exact validation 用） |
 | `legacy/duibi_p0_model_ac/exact_enumeration_solver.py` | 穷举验证 solver |
+| `legacy/duibi_p0_model_ac/metrics_posthoc.py` | 事后 CVaR 计算 |
+| `legacy/duibi_p0_model_ac/pareto_frontier.py` | Pareto 前沿构建 |
+| `legacy/duibi_p0_model_ac/p0_calibration.py` | η 标定 |
+| `legacy/duibi_p0_model_ac/generate_compute_resources.py` | 自动生成算力 CSV |
+| `legacy/duibi_p0_model_ac/frontier_config_snapshot.py` | 前沿配置快照 |
+| `legacy/duibi_p0_model_ac/frontier_reporting.py` | 前沿报告 |
+
+### 当前主线候选（根目录保留，Phase 3 迁入 `src/teavar_e2e/`）
+
+| 文件 | 用途 |
+|:--|:--|
+| `toy_te_data.py` | ToyTE 多路径数据集 |
+| `toy_two_task_independent_data.py` | 独立组件故障数据集 |
+| `validate_toy_te.py` | 数据完整性验证器 |
+| `component_scenario_generator.py` | 故障场景生成器 |
+| `m0_instances.py` | M0 实例定义 |
+
+### refactor/ 开发快照（保留不动）
+
+`refactor/` 包含 M0/M1/M2 参考实现和 toy_instances_v2.py。作为开发快照保留，Phase 3 将精选文件复制到 `src/teavar_e2e/`。
 
 ---
 

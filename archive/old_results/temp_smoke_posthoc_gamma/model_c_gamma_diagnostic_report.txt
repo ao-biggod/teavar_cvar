@@ -1,0 +1,98 @@
+Phase B++ Model C Γ Diagnostic Report
+input: results/temp_smoke_posthoc_gamma/uniform_frontier_b4_tasks8_posthoc_gamma.csv
+diagnostic_csv: results\temp_smoke_posthoc_gamma\model_c_gamma_diagnostic.csv
+points: 25 optimal: 25
+
+=== Objective vs cost ===
+  gf=0.03 obj=-3048.1526 monetary=3009.9912 exp_del=6058.14 recon_err=1.36e-12 reported_cost==monetary: True
+  gf=0.035 obj=-3048.1526 monetary=3009.9912 exp_del=6058.14 recon_err=1.36e-12 reported_cost==monetary: True
+  gf=0.0377 obj=-3214.6614 monetary=3054.1983 exp_del=6268.86 recon_err=1.36e-12 reported_cost==monetary: True
+obj_equals_monetary_cost (any point): False
+reported_cost matches monetary_cost (all): True
+Model C objective: min  cost_p + cost_b - omega_deliver * E[Del]   (monetary cost = cost_p + cost_b; NOT equal to ObjVal when omega>0)
+
+--- gamma_sla=0.8000 (sorted by gamma_sf) ---
+      gf          obj     mon_cost    exp_del     m_sf     p_sf placement_changed
+  0.0300     -3048.15      3009.99     6058.1   0.0300   0.0209         
+  0.0350     -3048.15      3009.99     6058.1   0.0350   0.0209         
+  0.0377     -3214.66      3054.20     6268.9   0.0377   0.0377        Y
+  0.0400     -3214.66      3054.20     6268.9   0.0400   0.0377         
+  0.0450     -3214.66      3054.20     6268.9   0.0450   0.0377         
+  obj_val: NON-INCREASING as gamma_sf widens [OK]
+  monetary_cost INCREASES as gamma_sf widens (expected when objective≠cost): [(0.035, 0.0377)]
+
+--- gamma_sla=0.9000 (sorted by gamma_sf) ---
+      gf          obj     mon_cost    exp_del     m_sf     p_sf placement_changed
+  0.0300     -3568.13      2330.94     5899.1   0.0300   0.0209         
+  0.0350     -3568.13      2330.94     5899.1   0.0350   0.0209         
+  0.0377     -3694.38      2316.46     6010.8   0.0377   0.0377        Y
+  0.0400     -3694.38      2316.46     6010.8   0.0400   0.0377         
+  0.0450     -3694.38      2316.46     6010.8   0.0450   0.0377         
+  obj_val: NON-INCREASING as gamma_sf widens [OK]
+  monetary_cost: non-increasing (pure-cost intuition holds)
+
+--- gamma_sla=1.0000 (sorted by gamma_sf) ---
+      gf          obj     mon_cost    exp_del     m_sf     p_sf placement_changed
+  0.0300     -4060.27      1429.16     5489.4   0.0300   0.0209         
+  0.0350     -4060.27      1429.16     5489.4   0.0350   0.0209         
+  0.0377     -4174.10      1717.93     5892.0   0.0377   0.0377        Y
+  0.0400     -4174.10      1717.93     5892.0   0.0400   0.0377         
+  0.0450     -4174.10      1717.93     5892.0   0.0450   0.0377         
+  obj_val: NON-INCREASING as gamma_sf widens [OK]
+  monetary_cost INCREASES as gamma_sf widens (expected when objective≠cost): [(0.035, 0.0377)]
+
+--- gamma_sla=1.1000 (sorted by gamma_sf) ---
+      gf          obj     mon_cost    exp_del     m_sf     p_sf placement_changed
+  0.0300     -4060.27      1429.16     5489.4   0.0300   0.0209         
+  0.0350     -4060.27      1429.16     5489.4   0.0350   0.0209         
+  0.0377     -4174.10      1717.93     5892.0   0.0377   0.0377        Y
+  0.0400     -4174.10      1717.93     5892.0   0.0400   0.0377         
+  0.0450     -4174.10      1717.93     5892.0   0.0450   0.0377         
+  obj_val: NON-INCREASING as gamma_sf widens [OK]
+  monetary_cost INCREASES as gamma_sf widens (expected when objective≠cost): [(0.035, 0.0377)]
+
+--- gamma_sla=1.2000 (sorted by gamma_sf) ---
+      gf          obj     mon_cost    exp_del     m_sf     p_sf placement_changed
+  0.0300     -4060.27      1429.16     5489.4   0.0300   0.0209         
+  0.0350     -4060.27      1429.16     5489.4   0.0350   0.0209         
+  0.0377     -4174.10      1717.93     5892.0   0.0377   0.0377        Y
+  0.0400     -4174.10      1717.93     5892.0   0.0400   0.0377         
+  0.0450     -4174.10      1717.93     5892.0   0.0450   0.0377         
+  obj_val: NON-INCREASING as gamma_sf widens [OK]
+  monetary_cost INCREASES as gamma_sf widens (expected when objective≠cost): [(0.035, 0.0377)]
+
+=== Pareto (min cost, min posthoc_sla, min posthoc_sf) ===
+distinct triples (all optimal): 6
+non-dominated triples: 4 (from 13 non-dominated grid points)
+dominated points: 12
+  DOMINATED gf=(0.8,0.0377) triple=(3054.2, 0.8, 0.0377) by gf=(0.8,0.03) triple=(3009.99, 0.8, 0.0209)
+  DOMINATED gf=(0.8,0.04) triple=(3054.2, 0.8, 0.0377) by gf=(0.8,0.03) triple=(3009.99, 0.8, 0.0209)
+  DOMINATED gf=(0.8,0.045) triple=(3054.2, 0.8, 0.0377) by gf=(0.8,0.03) triple=(3009.99, 0.8, 0.0209)
+  DOMINATED gf=(1.0,0.0377) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+  DOMINATED gf=(1.0,0.04) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+  DOMINATED gf=(1.0,0.045) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+  DOMINATED gf=(1.1,0.0377) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+  DOMINATED gf=(1.1,0.04) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+  DOMINATED gf=(1.1,0.045) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+  DOMINATED gf=(1.2,0.0377) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+  DOMINATED gf=(1.2,0.04) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+  DOMINATED gf=(1.2,0.045) triple=(1717.93, 1.0, 0.0377) by gf=(1.0,0.03) triple=(1429.16, 1.0, 0.0209)
+
+=== Phase B+ 6 triples dominated? ===
+  (1429.16, 1.0, 0.0209) in_non_dominated=True dominated=False
+  (1717.93, 1.0, 0.0377) in_non_dominated=False dominated=True
+  (2316.46, 0.9, 0.0377) in_non_dominated=True dominated=False
+  (2330.94, 0.9, 0.0209) in_non_dominated=True dominated=False
+  (3009.99, 0.8, 0.0209) in_non_dominated=True dominated=False
+  (3054.2, 0.8, 0.0377) in_non_dominated=False dominated=True
+
+=== Non-dominated acceptance (distinct triples=4) ===
+distinct cost=4, sla=3, sf=2
+cost vs SLA trade-off exists: True
+cost vs SF trade-off exists: True
+SLA vs SF opposite-direction pair: True
+>=3 non-dominated triples: PASS
+
+=== Feasibility cross-check (gamma_sla=1.0) ===
+tight gf=0.03 posthoc_sf=0.020938023450586263 would satisfy loose gf=0.045: True
+tight monetary=1429.1636295360256 vs loose monetary=1717.9276013766014 (loose gamma allows higher-monetary solution because objective rewards delivery)

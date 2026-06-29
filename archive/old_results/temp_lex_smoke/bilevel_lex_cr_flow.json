@@ -1,0 +1,26 @@
+{
+  "instance": "Toy-Combined-ComponentRisk",
+  "scenarios": "component_independent",
+  "n_scenarios": 512,
+  "bandwidth_mode": "flow",
+  "bandwidth_cost_on_placement": false,
+  "fast_objective": "lex_sla_delivery_cost",
+  "priority": [
+    "SF",
+    "SLA",
+    "Cost"
+  ],
+  "beta_sla": 0.8,
+  "beta_sf": 0.8,
+  "pricing_mode": "uniform",
+  "model": "Strict risk-first lexicographic bilevel TEAVAR",
+  "status": "OPTIMAL",
+  "R_sf_star": 0.02499999999999997,
+  "R_sla_star": 0.049874999999999996,
+  "cost_star": 0.8399999999196276,
+  "Y1_count": 1,
+  "Y2_count": 1,
+  "best_count": 1,
+  "best_placement": "CCC",
+  "wall_time_sec": 9.708537599995907
+}

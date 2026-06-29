@@ -1,0 +1,27 @@
+{
+  "topology": "B4",
+  "routing_mode": "per_task_od",
+  "num_tasks": 8,
+  "target_bandwidth_share": 0.3,
+  "profiles": [
+    {
+      "topology": "B4",
+      "routing_mode": "per_task_od",
+      "num_tasks": 8,
+      "profile": "copo_v1",
+      "bandwidth_price_mode": "role_transit",
+      "bandwidth_price_scale": 0.0030563617503325887,
+      "target_bandwidth_share": 0.3,
+      "suggested_bandwidth_price_scale": 0.0030563617503325887,
+      "reference_policy": "cheapest_placement_min_path_tariff",
+      "c_p_ref": 94.52,
+      "c_b_ref": 40.50857142857143,
+      "bandwidth_share": 0.30000000000000004,
+      "price_min": 0.0030563617503325887,
+      "price_max": 0.007640904375831471,
+      "price_ratio": 2.5,
+      "mean_price": 0.005630140066402137,
+      "median_price": 0.004584542625498883
+    }
+  ]
+}

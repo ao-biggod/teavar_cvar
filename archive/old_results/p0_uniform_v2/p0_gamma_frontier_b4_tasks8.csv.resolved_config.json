@@ -1,0 +1,484 @@
+{
+  "snapshot_version": "phase_b_plus_plus_plus_1",
+  "generated_at_utc": "2026-06-04T02:57:29.719413+00:00",
+  "topology": "B4",
+  "routing_mode": "per_task_od",
+  "num_tasks": 8,
+  "k_paths": 4,
+  "task_selection": {
+    "num_tasks": 8,
+    "task_selection_seed": "deterministic_sort_by_demand_desc",
+    "tasks": [
+      {
+        "task_id": 0,
+        "src": 4,
+        "dst": 11,
+        "b_in": 1699.266700831364,
+        "b_out": 849.633350415682,
+        "w": {
+          "0": 4.0,
+          "1": 2.0,
+          "2": 8.0
+        }
+      },
+      {
+        "task_id": 1,
+        "src": 5,
+        "dst": 11,
+        "b_in": 1035.4618834959995,
+        "b_out": 517.7309417479997,
+        "w": {
+          "0": 8.0,
+          "1": 0.5,
+          "2": 4.0
+        }
+      },
+      {
+        "task_id": 2,
+        "src": 4,
+        "dst": 10,
+        "b_in": 621.0089164285238,
+        "b_out": 310.5044582142619,
+        "w": {
+          "0": 2.0,
+          "1": 1.0,
+          "2": 32.0
+        }
+      },
+      {
+        "task_id": 3,
+        "src": 4,
+        "dst": 2,
+        "b_in": 526.7896093065725,
+        "b_out": 263.39480465328626,
+        "w": {
+          "0": 4.0,
+          "1": 2.0,
+          "2": 8.0
+        }
+      },
+      {
+        "task_id": 4,
+        "src": 10,
+        "dst": 11,
+        "b_in": 522.7559845320612,
+        "b_out": 261.3779922660306,
+        "w": {
+          "0": 8.0,
+          "1": 0.5,
+          "2": 4.0
+        }
+      },
+      {
+        "task_id": 5,
+        "src": 4,
+        "dst": 7,
+        "b_in": 449.7034184267333,
+        "b_out": 224.85170921336666,
+        "w": {
+          "0": 2.0,
+          "1": 1.0,
+          "2": 32.0
+        }
+      },
+      {
+        "task_id": 6,
+        "src": 5,
+        "dst": 10,
+        "b_in": 378.4167970558693,
+        "b_out": 189.20839852793466,
+        "w": {
+          "0": 4.0,
+          "1": 2.0,
+          "2": 8.0
+        }
+      },
+      {
+        "task_id": 7,
+        "src": 4,
+        "dst": 5,
+        "b_in": 321.93002325620904,
+        "b_out": 160.96501162810452,
+        "w": {
+          "0": 8.0,
+          "1": 0.5,
+          "2": 4.0
+        }
+      }
+    ],
+    "demand_total_b_in": 5555.333333333332
+  },
+  "random_seed": null,
+  "link_price": {
+    "mode": "uniform",
+    "scale": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "mean": 1.0,
+    "is_uniform": true,
+    "edge_count": 38
+  },
+  "scenarios": {
+    "scenario_mode": "macro3",
+    "scenarios": [
+      0,
+      1,
+      2
+    ],
+    "probabilities": {
+      "0": 0.6,
+      "1": 0.3,
+      "2": 0.1
+    },
+    "sigma_summary_by_scenario": {
+      "0": {
+        "min": 1.0,
+        "max": 1.0,
+        "mean": 1.0
+      },
+      "1": {
+        "min": 0.8,
+        "max": 1.0,
+        "mean": 0.9789473684210526
+      },
+      "2": {
+        "min": 1.0,
+        "max": 1.0,
+        "mean": 1.0
+      }
+    },
+    "scenario_s1_link_k": 4,
+    "scenario_s1_link_sigma": 0.8,
+    "scenario_s1_mode": "partial_sigma",
+    "scenario_s1_stressed_edges": [
+      [
+        11,
+        10
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "scenario_s2_derate": null
+  },
+  "demand_calibration": {
+    "eta": 1.3,
+    "joint_demand_scale": null,
+    "demand_scale_explicit": false
+  },
+  "compute_capacity": {
+    "C_normal_by_node": {
+      "0": {
+        "0": 33.6,
+        "1": 11.0,
+        "2": 14.0
+      },
+      "1": {
+        "0": 89.2,
+        "1": 32.6,
+        "2": 13.7
+      },
+      "2": {
+        "0": 117.8,
+        "1": 41.6,
+        "2": 19.4
+      },
+      "3": {
+        "0": 237.8,
+        "1": 93.8,
+        "2": 45.7
+      },
+      "4": {
+        "0": 109.9,
+        "1": 37.8,
+        "2": 17.5
+      },
+      "5": {
+        "0": 214.6,
+        "1": 69.0,
+        "2": 34.9
+      },
+      "6": {
+        "0": 213.4,
+        "1": 69.7,
+        "2": 43.7
+      },
+      "7": {
+        "0": 128.7,
+        "1": 50.2,
+        "2": 20.2
+      },
+      "8": {
+        "0": 37.6,
+        "1": 12.9,
+        "2": 15.0
+      },
+      "9": {
+        "0": 131.8,
+        "1": 45.9,
+        "2": 21.7
+      },
+      "10": {
+        "0": 125.7,
+        "1": 43.4,
+        "2": 24.3
+      },
+      "11": {
+        "0": 36.9,
+        "1": 12.6,
+        "2": 16.0
+      }
+    },
+    "C_s_by_scenario": {
+      "0": {
+        "0": {
+          "0": 33.6,
+          "1": 11.0,
+          "2": 14.0
+        },
+        "1": {
+          "0": 89.2,
+          "1": 32.6,
+          "2": 13.7
+        },
+        "2": {
+          "0": 117.8,
+          "1": 41.6,
+          "2": 19.4
+        },
+        "3": {
+          "0": 237.8,
+          "1": 93.8,
+          "2": 45.7
+        },
+        "4": {
+          "0": 109.9,
+          "1": 37.8,
+          "2": 17.5
+        },
+        "5": {
+          "0": 214.6,
+          "1": 69.0,
+          "2": 34.9
+        },
+        "6": {
+          "0": 213.4,
+          "1": 69.7,
+          "2": 43.7
+        },
+        "7": {
+          "0": 128.7,
+          "1": 50.2,
+          "2": 20.2
+        },
+        "8": {
+          "0": 37.6,
+          "1": 12.9,
+          "2": 15.0
+        },
+        "9": {
+          "0": 131.8,
+          "1": 45.9,
+          "2": 21.7
+        },
+        "10": {
+          "0": 125.7,
+          "1": 43.4,
+          "2": 24.3
+        },
+        "11": {
+          "0": 36.9,
+          "1": 12.6,
+          "2": 16.0
+        }
+      },
+      "1": {
+        "0": {
+          "0": 33.6,
+          "1": 11.0,
+          "2": 14.0
+        },
+        "1": {
+          "0": 89.2,
+          "1": 32.6,
+          "2": 13.7
+        },
+        "2": {
+          "0": 117.8,
+          "1": 41.6,
+          "2": 19.4
+        },
+        "3": {
+          "0": 237.8,
+          "1": 93.8,
+          "2": 45.7
+        },
+        "4": {
+          "0": 109.9,
+          "1": 37.8,
+          "2": 17.5
+        },
+        "5": {
+          "0": 214.6,
+          "1": 69.0,
+          "2": 34.9
+        },
+        "6": {
+          "0": 213.4,
+          "1": 69.7,
+          "2": 43.7
+        },
+        "7": {
+          "0": 128.7,
+          "1": 50.2,
+          "2": 20.2
+        },
+        "8": {
+          "0": 37.6,
+          "1": 12.9,
+          "2": 15.0
+        },
+        "9": {
+          "0": 131.8,
+          "1": 45.9,
+          "2": 21.7
+        },
+        "10": {
+          "0": 125.7,
+          "1": 43.4,
+          "2": 24.3
+        },
+        "11": {
+          "0": 36.9,
+          "1": 12.6,
+          "2": 16.0
+        }
+      },
+      "2": {
+        "0": {
+          "0": 33.6,
+          "1": 11.0,
+          "2": 14.0
+        },
+        "1": {
+          "0": 35.68,
+          "1": 13.040000000000001,
+          "2": 5.48
+        },
+        "2": {
+          "0": 47.120000000000005,
+          "1": 16.64,
+          "2": 7.76
+        },
+        "3": {
+          "0": 237.8,
+          "1": 93.8,
+          "2": 45.7
+        },
+        "4": {
+          "0": 43.96000000000001,
+          "1": 15.12,
+          "2": 7.0
+        },
+        "5": {
+          "0": 214.6,
+          "1": 69.0,
+          "2": 34.9
+        },
+        "6": {
+          "0": 213.4,
+          "1": 69.7,
+          "2": 43.7
+        },
+        "7": {
+          "0": 51.48,
+          "1": 20.080000000000002,
+          "2": 8.08
+        },
+        "8": {
+          "0": 37.6,
+          "1": 12.9,
+          "2": 15.0
+        },
+        "9": {
+          "0": 52.720000000000006,
+          "1": 18.36,
+          "2": 8.68
+        },
+        "10": {
+          "0": 50.28,
+          "1": 17.36,
+          "2": 9.72
+        },
+        "11": {
+          "0": 36.9,
+          "1": 12.6,
+          "2": 16.0
+        }
+      }
+    }
+  },
+  "omega_deliver": 1.0,
+  "gamma_sla_values": [
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2
+  ],
+  "gamma_sf_values": [
+    0.03,
+    0.035,
+    0.0377,
+    0.04,
+    0.045
+  ],
+  "min_off_hub": 2,
+  "sf_ref_mode": "global_M_ex",
+  "sf_ref_note": "Model C SF CVaR uses scalar D_ref=M_ex (Phase B+ baseline); not per_resource.",
+  "loader": {
+    "entrypoint": "run_gamma_frontier.load_p0_data",
+    "effective_arguments": {
+      "base_path": "./data",
+      "topology": "B4",
+      "num_tasks": 8,
+      "k_paths": 4,
+      "eta": 1.3,
+      "joint_demand_scale": null,
+      "routing_mode": "per_task_od",
+      "s2_derate": 0.4,
+      "s1_link_k": 4,
+      "s1_sigma": 0.8,
+      "umcf_access_sigma": 0.99,
+      "umcf_sink_access_sigma": null,
+      "link_price_mode": "uniform",
+      "omega_deliver": 1.0,
+      "time_limit": 120,
+      "mip_gap": 0.02
+    }
+  },
+  "git": {
+    "commit": "8b78f819fb2aefd946519068eef6c9d4eb56c609",
+    "dirty": true,
+    "dirty_summary": "M __pycache__/b4_joint_data.cpython-311.pyc\n M __pycache__/cvar_compare.cpython-311.pyc\n M __pycache__/duibi_metrics.cpython-311.pyc\n M __pycache__/teavar_framework_models.cpython-311.pyc\n M cvar_compare.py\n M run_gamma_frontier.py\n?? __pycache__/dag_sla_model.cpython-311.pyc\n?? __pycache__/frontier_config_snapshot.cpython-311.pyc\n?? __pycache__/frontier_reporting.cpython-311.pyc\n?? __pycache__/main.cpython-311.pyc\n?? __pycache__/metrics_posthoc.cpython-311.pyc\n?? __pycache__/pareto_frontier.cpython-311.pyc\n?? __pycache__/scenario_generator.cpython-311.pyc\n?? __pycache__/task_dag_templates.cpython-311.pyc\n?? frontier_config_snapshot.py\n?? frontier_reporting.py\n?? metrics_posthoc.py\n?? pareto_frontier.py\n?? results/README_metrics.md\n?? results/link_pricing_audit_b4.json\n?? results/micro_pruned_diagnostic_b4.json\n?? results/p0_uniform_v2/\n?? results/temp_smoke/\n?? results/temp_smoke_posthoc_gamma/\n?? scripts/__pycache__/diagnose_gamma_monotonicity.cpython-311.pyc\n?? scripts/__pycache__/formal_p0_acceptance.cpython-311.pyc\n?? scripts/__pycache__/run_pricing_ablation_smoke.cpython-311.pyc\n?? scripts/_parity_quick_run.py\n?? scripts/annotate_frontier_pareto.py\n?? scripts/compare_frontier_parity.py\n?? scripts/diagnose_gamma_monotonicity.py\n?? scripts/formal_p0_acceptance.py\n?? scripts/run_parity_matrix.py\n?? tests/__pycache__/test_b4_micro_pruned_loader.cpython-311.pyc\n?? tests/__pycache__/test_big_m_cleanup.cpython-311.pyc\n?? tests/__pycache__/test_dag_chain.cpython-311.pyc\n?? tests/__pycache__/test_formal_p0_acceptance.cpython-311.pyc\n?? tests/__pycache__/test_link_pricing.cpython-311.pyc\n?? tests/__pycache__/test_micro_pruned_entrypoints.cpython-311.pyc\n?? tests/__pycache__/test_posthoc_cvar_metrics.cpython-311.pyc\n?? tests/__pycache__/test_pricing_ablation_smoke.cpython-311.pyc\n?? tests/__pycache__/test_scenario_generator.cpython-311.pyc\n?? tests/__pycache__/test_sf_normalization.cpython-311.pyc\n?? tests/test_b4_micro_pruned_loader.py\n?? tests/test_big_m_cleanup.py\n?? tests/test_dag_chain.py\n?? tests/test_formal_p0_acceptance.py\n?? tests/test_link_pricing.py\n?? tests/test_micro_pruned_entrypoints.py\n?? tests/test_posthoc_cvar_metrics.py\n?? tests/test_pricing_ablation_smoke.py\n?? tests/test_scenario_generator.py\n?? tests/test_sf_normalization.py\n?? \"\\345\\276\\256\\350\\247\\202\\346\\225\\205\\351\\232\\234\\346\\246\\202\\347\\216\\207_\\344\\277\\256\\346\\224\\271\\346\\270\\205\\345\\215\\225.md\"\n?? \"\\350\\256\\272\\346\\226\\207\\302\\2477\\345\\256\\236\\351\\252\\214\\347\\253\\240\\350\\212\\202_\\345\\210\\235\\347\\250\\277.md\"\n?? \"\\350\\256\\272\\346\\226\\207\\345\\210\\235\\347\\250\\277_v2_\\346\\225\\205\\351\\232\\234\\346\\250\\241\\345\\236\\213\\344\\270\\216CVaR\\346\\270\\205\\347\\220\\206.md\"\n?? \"\\351\\241\\271\\347\\233\\256\\346\\226\\207\\344\\273\\266\\346\\270\\205\\345\\215\\225\\344\\270\\216\\350\\204\\211\\347\\273\\234.md\""
+  },
+  "virtual_edge_meta": {
+    "virtual_edge_count": 0,
+    "virtual_edge_price_policy": "uniform@scale=1",
+    "virtual_edge_sigma_policy": "n/a",
+    "umcf_access_sigma": 0.99,
+    "virtual_edges_in_bandwidth_cost": false,
+    "virtual_edge_link_price_min": "",
+    "virtual_edge_link_price_max": "",
+    "virtual_edge_link_price_sample": ""
+  }
+}
