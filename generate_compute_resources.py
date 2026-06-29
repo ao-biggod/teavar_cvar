@@ -21,6 +21,8 @@ Realism principles (cloud provider economics):
   - Regional variance: each node gets small random perturbation (~10%) to break symmetry.
 """
 
+from __future__ import annotations
+
 import csv
 import os
 import random
