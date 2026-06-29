@@ -1,0 +1,76 @@
+# TEAVAR-E2E 仓库文件地图
+
+> 最后更新：2026-06-30
+
+---
+
+## 当前主线（current mainline）
+
+| 文件 | 用途 |
+|:--|:--|
+| `src/teavar_e2e/data/toy_te_data.py` | ToyTE：11 节点端到端多路径流量工程数据集 |
+| `src/teavar_e2e/data/toy_two_task_independent_data.py` | 独立组件故障玩具（23 组件 Bernoulli 乘积） |
+| `src/teavar_e2e/data/validate_toy_te.py` | ToyTE 数据完整性验证器（28 项检查） |
+| `src/teavar_e2e/models/m0_models.py` | M0：确定性 two-stage multi-path placement-routing baseline |
+| `src/teavar_e2e/models/m1_models.py` | M1：场景化 adaptive recourse（$r,z$ + 场景硬容量） |
+| `src/teavar_e2e/models/m2_models.py` | M2：端到端 CVaR 风险度量 |
+| `src/teavar_e2e/models/m2_cost_models.py` | M2-C-Cost：成本最小化 + CVaR 约束 |
+| `src/teavar_e2e/models/m2_cost_helpers.py` | CVaR RU 线性化 + E2E loss 权重 + 成本表达式 |
+| `docs/m0_m1_m2_建模说明.md` | M0→M1→M2 完整建模公式 |
+
+> 注：Phase 3 前 `src/teavar_e2e/` 尚未创建，当前主线代码分布在 `refactor/` 和根目录。
+
+---
+
+## 可用 baseline（useful baselines，不再扩展）
+
+| 文件 | 用途 |
+|:--|:--|
+| `legacy/duibi_p0_model_ac/teavar_framework_models.py` | Model A/C/D：SLA+SF 双 CVaR 四种架构 |
+| `legacy/duibi_p0_model_ac/cvar_compare.py` | build_teavar_sla_cvar_model + RU 约束工厂函数 |
+| `legacy/duibi_p0_model_ac/duibi.py` | physical CVaR 对照模型（利用率尾部） |
+| `legacy/duibi_p0_model_ac/b4_joint_data.py` | B4/多拓扑数据加载器 |
+| `legacy/duibi_p0_model_ac/toy_instances.py` | 旧确定性玩具（单路径，exact validation 用） |
+| `legacy/duibi_p0_model_ac/exact_enumeration_solver.py` | 穷举验证 solver |
+
+---
+
+## 旧实验（legacy experiments）
+
+| 文件 | 用途 |
+|:--|:--|
+| `legacy/teavar_original/` | 旧 TEAVAR WAN 隧道分流复现 |
+| `legacy/copo_drafts/` | Copo 早期草稿 |
+| `legacy/l2_bilevel/` | L2 双层模型（fixed-y / embedded-y） |
+| `legacy/monetary_cvar/` | 货币化 CVaR 早期探索 |
+| `legacy/experiment_scripts/` | P0 扫参 / B4 主表 / routing ablation / UMCF sweep / 论文图表 |
+
+---
+
+## 历史产物（historical outputs）
+
+| 目录 | 内容 |
+|:--|:--|
+| `archive/old_chinese_docs/` | 旧中文建模文档、工作报告、论文初稿、PDF |
+| `archive/old_figures/` | 旧实验图表 |
+| `archive/old_results/` | 旧实验结果 CSV、PNG |
+
+---
+
+## 独立发布版
+
+| 目录 | 说明 |
+|:--|:--|
+| `model_ac_component_risk_release/` | 剥离 duibi 依赖的 Model A/C ComponentRisk 独立发布版 |
+
+---
+
+## 不变更
+
+| 目录/文件 | 原因 |
+|:--|:--|
+| `data/` | 多拓扑实验数据（B4/ATT/Abilene/…），各实验线共用 |
+| `scripts/` | 审计/检查脚本 |
+| `model_ac_component_risk_release/` | 独立发布版不动 |
+| `.claude/` | Claude Code 项目配置 |
+| `refactor/` | 保留为开发快照，Phase 3 后不删除 |
