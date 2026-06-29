@@ -23,20 +23,168 @@
 ## 目录结构（核心）
 
 ```
-├── main.py              # 统一入口：teavar（论文） / joint（B4 + 新 CVaR）
-├── TEAVAR_Gurobi.py     # TEAVAR 隧道分流 MILP
-├── parsers.py           # 拓扑、需求、tunnels
-├── util.py              # Weibull 链路故障、子场景
-├── duibi.py             # 玩具数据 + 单层 CVaR / KKT / ε-约束 / Copo 风格模型
-├── duibi_metrics.py     # 解后指标（利用率、送达、SLA 损失等）
-├── cvar_compare.py      # physical vs teavar_sla 并排 + build_teavar_sla_cvar_model + 虚拟接入瓶颈
-├── teavar_framework_models.py  # TEAVAR 视角 SLA CVaR 与 duibi 式 A–D 对齐
-├── b4_joint_data.py     # B4 → 与 duibi 同构的数据对象 load_b4_joint_data
-├── data/B4/             # 拓扑、需求、paths、node_compute_resources.csv
-└── 建模公式说明.md      # 各函数对应公式（主文档外单开）
+├── main.py                     # 统一入口：teavar（论文） / joint（B4 + 新 CVaR）
+├── TEAVAR_Gurobi.py            # TEAVAR 隧道分流 MILP
+├── parsers.py                  # 拓扑、需求、tunnels
+├── util.py                     # Weibull 链路故障、子场景
+│
+├── duibi.py                    # 玩具数据 + 单层 CVaR / KKT / ε-约束 / Copo 风格模型
+├── duibi_metrics.py            # 解后指标（利用率、送达、SLA 损失等）+ 链路定价
+│
+├── cvar_compare.py             # ★ physical vs teavar_sla 并排 + build_teavar_sla_cvar_model
+│                               #   + 虚拟接入瓶颈 + 链路名义容量 + 算力 SF CVaR（RU 纯连续）
+├── teavar_framework_models.py  # ★ TEAVAR 视角 SLA CVaR 与 duibi 式 Model A–D 四种架构对齐
+│                               #   (加权/KKT Indicator/ε-约束/McCormick)
+├── bilevel_teavar_models.py    # ★ L0 双层 baseline：慢层枚举 placement → 快层 routing → post-hoc CVaR
+├── l2_full_models.py           # ★ L2 模块：fixed-y F1 primal/dual 校验 + embedded-y 全变量
+│                               #   + F1 strong-duality exact McCormick
+│
+├── b4_joint_data.py            # ★ B4 及多拓扑 → 与 duibi 同构的联合数据对象
+│                               #   支持 hub / per_task_od / umcf_global / umcf_per_task 路由模式
+│
+├── toy_instances.py            # 确定性小规模玩具算例（Toy-SLA/Toy-SF/Toy-Combined/Toy-ComponentRisk）
+│                               #   供 exact-enumeration 验证
+├── toy_te_data.py              # ★ ToyTE：端到端两阶段多路径流量工程玩具数据集
+│                               #   2 任务 × 3 算力节点 × (3 ingress + 3 egress) 路径 × 4 场景
+├── toy_two_task_independent_data.py  # ★ 独立组件故障玩具：2 任务 × 3 节点 × 23 组件 × 产品分布
+├── validate_toy_te.py          # ToyTE 自动完整性验证器（25+ 检查项）
+├── component_scenario_generator.py   # 独立组件故障场景生成器（Bernoulli 乘积 → 512/8.4M 场景）
+│
+├── m0_instances.py             # M0 快层枚举实例（exhaustive placement 遍历）
+├── m0_models.py                # M0 快层路由 MILP（给定 y 的 x/d 子问题）
+├── exact_enumeration_solver.py # 穷举 placement → 解 routing → 算 CVaR（full enumeration baseline）
+│
+├── metrics_posthoc.py          # 事后 CVaR 计算（从解提取 y，重算 SLA/SF CVaR）
+├── pareto_frontier.py          # Pareto 前沿构建（Model C ε-扫描 + Model A λ-扫描）
+├── p0_calibration.py           # η 标定（需求放大 scale 搜索使得 feasible 条件触发）
+│
+├── generate_compute_resources.py   # 自动生成算力 CSV（按度中心性分 core/aggregation/edge）
+├── experiment_report.py            # 实验报告生成（图表 + 表格 + LaTeX）
+├── progressive_pipeline.py         # progressive 实验流水线（多轮校准）
+│
+├── run_gamma_frontier.py           # ★ Γ 前沿扫描脚本（Model C）
+├── run_routing_mode_ablation.py    # 路由模式消融实验
+├── run_b4_main_table.py            # B4 主表生成
+├── run_p0_sweep.py / run_p0_diag_tasks12.py  # P0 λ/Γ 扫参
+├── plot_duibi_paper_narrative.py   # 论文叙事图
+├── plot_duibi_umcf_sweep.py        # UMCF 扫参图
+├── summarize_p0_results.py         # P0 结果汇总
+│
+├── data/B4/            # 拓扑、需求、paths、node_compute_resources.csv
+├── data/Abilene/       # 同上（6 节点）
+├── data/ATT/           # 同上（25 节点）
+├── data/Sprint/        # 同上（11 节点）
+├── data/IBM/           # 同上（18 节点）
+├── data/Nextgen/       # 同上（10 节点）
+├── data/XNet/          # 同上（29 节点）
+├── data/Custom/        # 自定义小型拓扑
+├── data/Custom2/       # 自定义小型拓扑
+│
+├── docs/
+│   ├── model_ac_建模说明.md       # ★ Model A/C 完整数学定义（符号、约束、CVaR 公式）
+│   ├── toy_dataset_design.md      # ★ ToyTE 数据集设计文档
+│   ├── l2_full_design.md          # L2 双层嵌入设计
+│   ├── m0_m1_m2_建模说明.md       # M0/M1/M2 建模与校验
+│   └── exact_validation.md        # Exact enumeration 验证
+│
+├── model_ac_component_risk_release/  # ★ 独立发布版（剥离 duibi 依赖）
+│   ├── cvar_compare.py
+│   ├── teavar_framework_models.py
+│   ├── duibi_metrics.py
+│   ├── metrics_posthoc.py
+│   ├── exact_enumeration_solver.py
+│   ├── component_scenario_generator.py
+│   ├── toy_instances.py
+│   ├── teavar_data.py
+│   └── tests/   (test_exact_validation / test_combined_conflict_toy / test_combined_component_risk_toy)
+│
+├── tests/
+│   ├── test_smoke.py                 # 冒烟测试
+│   ├── test_per_task_od.py           # per_task_od 路由模式测试
+│   ├── test_umcf_per_task.py         # UMCF per-task 测试
+│   ├── test_routing_mode_ablation.py # 路由模式消融测试
+│   ├── test_p0_experiment.py         # P0 实验测试
+│   └── test_l2_f1_dual.py            # L2 F1 对偶验证测试
+│
+├── scripts/
+│   ├── p0_acceptance.py              # P0 验收脚本
+│   ├── run_l2_f1_dual_check.py       # L2 F1 对偶检查
+│   ├── audit_datasets.py             # 数据集审计
+│   └── _check_assign_milp.py / _check_compute_assign.py
+│
+├── reports/ / results/ / output/ / figures/   # 实验结果、图表输出
+└── 建模公式说明.md      # ★ 各函数对应公式（主文档外单开）
 ```
 
-其余如 `copo_CVaR.py`、`huatu.py`、`teavar_cete*.py` 等为扩展/实验脚本，入口以各自文件为准。
+### 核心文件详细说明
+
+#### 数据准备层
+
+| 文件 | 设计思路 | 核心内容 |
+|:--|:--|:--|
+| **`b4_joint_data.py`** | 将任意拓扑（B4/Abilene/ATT/…）转为与 MILP 同构的数据对象。支持 5 种路由模式：`hub`（径向）、`per_task_od`（每任务独立 OD）、`umcf_global`（全局 UMCF 虚拟源汇）、`umcf_per_task`（每任务独立 UMCF）、`dag`（占位）。自动检测 1-based/0-based 拓扑索引；缺 demand/compute CSV 时自动合成。 | `load_b4_joint_data()` / `load_joint_data()` — 拓扑解析、K 短路候选路径生成、场景构造（s0 全通/s1 链路故障/s2 算力降级）、节点角色自动标注、链路定价配置 |
+| **`toy_te_data.py`** | 设计端到端两阶段多路径流量工程玩具。**不是 placement/knapsack toy**，而是显式多路径、共享链路竞争的 TE 数据集。11 节点 24 有向边、2 任务含不同资源偏好（CPU-heavy vs GPU-heavy）、3 算力节点异构、3 条 ingress + 3 条 egress 候选路径/对。 | `ToyTEData` dataclass + `build_toy_te_dataset()` — 共享瓶颈链路 a→c/c→a（容量 6.0 < 10+10）、b→d/d→b（容量 8.0）、算力瓶颈（colocation 导致 CPU/GPU 溢出）、4 场景（正常/转发节点 A 失效/mA 失效/链路降额） |
+| **`toy_two_task_independent_data.py`** | 独立 Bernoulli 组件故障模型（23 组件 = 3 算力节点 + 20 链路），场景由产品分布生成。支持 `pruned`（≤max_fail 组件故障）/ `exhaustive`（全部 2²³≈8.4M 场景）/ `aggregate_worst`（尾部聚合）三种模式。 | `TwoTaskIndependentData` dataclass + `generate_scenarios()` — 每个组件有独立故障概率 p_fail，场景概率 = ∏ 组件成功/失败概率。链路和算力节点分别有独立价格 ρ_compute 和 ρ_link |
+| **`toy_instances.py`** | 4 个确定性最小玩具：Toy-SLA（单任务 SLA CVaR）、Toy-SF（双任务 SF CVaR）、Toy-Combined-Conflict（SLA×SF 冲突）、Toy-ComponentRisk（512 场景组件级故障）。用于 exact enumeration 对照验证。 | `build_toy_sla()` / `build_toy_sf()` / `build_toy_combined()` / `build_toy_combined_component_risk()` |
+| **`validate_toy_te.py`** | ToyTE 专用自动验证器（28 项检查），确保数据集可用性。 | 检查：M⊆V、task_src/dst∈V、路径完整性、≥2 路径/对、共享瓶颈存在、概率和=1、容量非负等 |
+| **`component_scenario_generator.py`** | 独立故障组件场景生成基础设施。将链路和算力节点抽象为 `FailureComponent`，按独立 Bernoulli 乘积生成场景概率和容量。 | `FailureComponent` 类 + `attach_component_scenarios()` — 支持 `link` 和 `compute_derate` 两种组件类型 |
+
+#### 优化模型层
+
+| 文件 | 模型架构 | 数学公式与约束 |
+|:--|:--|:--|
+| **`cvar_compare.py`** | **核心 MILP 工厂**。`build_teavar_sla_cvar_model()` 是 Model A 的底层实现（被 `teavar_framework_models` 调用）。 | **目标**: $\min\; c_p + c_b + \lambda_{sla}\text{CVaR}^{SLA} + \lambda_{sf}\text{CVaR}^{SF} - \omega\mathbb{E}[\text{Del}]$ <br> **SLA CVaR** (Rockafellar-Uryasev): $\text{CVaR}^{SLA}_\beta = \zeta + \frac{1}{1-\beta}\sum_s \pi_s u_s$，$u_s b_i \ge b_i - R_{is} - b_i\zeta$ <br> **SF CVaR**: 每资源维归一化 $L^{SF}_s = \max_{m,k} (D_{mk}-C_{mks})_+ / \bar D_k$，$\phi_s \ge L^{SF}_s - \zeta_{sf}$ <br> **约束**: ①任务唯一放置 $\sum_m y_{im}=1$ ②计划流量≤放置 $x \le y\cdot b$ ③算力名义容量 $D_{mk}\le C^{norm}_{mk}$ ④链路名义容量 $\sum x\delta_{ep} \le B_e$ ⑤场景送达耦合 $d=x$ if path_up else $d=0$ ⑥虚拟接入瓶颈 |
+| **`teavar_framework_models.py`** | **TEAVAR 视角四架构**（Model A/B/C/D），与 `duibi.py` 物理四架构平行对照。 | **Model A**: 单层加权 MILP（委托 `build_teavar_sla_cvar_model`）<br> **Model B**: Model A 目标 + KKT Indicator 互补条件：$z^{lam}_{s,i,t}=1 \Rightarrow slack=0$，$z^{mu}_s=1 \Rightarrow u_s=0$<br> **Model C**: ε-约束：$\min c_p+c_b-\omega\mathbb{E}[Del]$ s.t. $\text{CVaR}^{SLA}\le\Gamma_{sla}$，$\text{CVaR}^{SF}\le\Gamma_{sf}$<br> **Model D**: McCormick 线性包络松弛：$\lambda/\lambda_{max} + slack/slack_{max} \le 1$ |
+| **`bilevel_teavar_models.py`** | **L0 双层分解 baseline**。慢层枚举 placement → 快层解 routing → post-hoc CVaR。非 KKT 嵌入的严格 Stackelberg 单模型，而是 reaction-based decomposition。 | 快层目标模式：`delivery`（min cost−ωE[Del]）、`lexicographic`（max E[Del]→min SLA loss→min cost）、`min_sla_cvar`（直接 min CVaR_SLA）、`lex_sla_delivery_cost`（min CVaR_SLA→max E[Del]→min cost）。严格 risk-first lexicographic 双层：SF→SLA→Cost |
+| **`l2_full_models.py`** | **L2 全变量双层嵌入**（M0.5/M1/M2）。F1 为 SLA CVaR 最小化的 follower 问题。 | **M0.5**: fixed-y F1 primal + strong-duality gap 校验（手写 dual objective = ΣRHS·Pi，符号检查 cap_in/cap_out≤0, ru_in/ru_out≥0）<br> **M2**: embedded-y 全变量 + F1 strong-duality exact McCormick（π×y 线性化）<br> 上层: lex SF→SLA→Cost |
+| **`duibi.py`** | 物理层四架构对照（算力+链路利用率 CVaR），与 TEAVAR 侧形成"物理 CVaR vs SLA CVaR"对比基线。 | 与 `teavar_framework_models` 共享 Model A–D 结构，但风险度量为**利用率尾部**而非需求损失尾部 |
+| **`exact_enumeration_solver.py`** | 小规模 exhaustive 枚举验证。对 27 种 placement 逐一解 routing LP → 算 CVaR → 排名。 | `enumerate_placements()` + `compute_cvar()` — 提供 ground-truth baseline 供 MILP 对齐 |
+
+#### 风险度量约束体系
+
+**SLA (链路送达) CVaR 约束**(`cvar_compare.py:439-455`):
+$$u_s \cdot b_i^{\text{in}} \ge b_i^{\text{in}} - R_{is}^{\text{in}} - b_i^{\text{in}}\zeta \qquad \forall s,i$$
+$$u_s \cdot b_i^{\text{out}} \ge b_i^{\text{out}} - R_{is}^{\text{out}} - b_i^{\text{out}}\zeta \qquad \forall s,i$$
+$$u_s \ge 0$$
+
+**算力 SF (节点容量) CVaR 约束**(`cvar_compare.py:122-159`):
+$$D_{mk} = \sum_i w_{ik} y_{im} \qquad \forall m,k$$
+$$\phi_s \ge \frac{D_{mk} - C_{mks}^N}{\bar D_k} - \zeta^{\text{sf}} \qquad \forall s,m,k$$
+$$\phi_s \ge 0$$
+
+**链路容量约束**(`cvar_compare.py:229-247`):
+$$\sum_{i,m,p} x_{i,m,p}^{\text{in}} \delta_{e,p} + \sum_{i,m,q} x_{i,m,q}^{\text{out}} \delta_{e,q} \le B_e \qquad \forall e\in\mathcal{E}$$
+
+**算力容量约束**(`cvar_compare.py:418-423`):
+$$\sum_{i} w_{ik} y_{im} \le C_{mk}^{\text{normal}} \qquad \forall m\in\mathcal{M}, k\in\mathcal{K}$$
+
+**场景送达耦合**(`cvar_compare.py:79-119`):
+$$d_{i,m,p,s}^{\text{in}} = \begin{cases} x_{i,m,p}^{\text{in}} & \text{if } \prod_{e\in p} \sigma_{es} > 0 \\ 0 & \text{otherwise} \end{cases}$$
+
+#### 实验与工作流层
+
+| 文件 | 用途 |
+|:--|:--|
+| `run_gamma_frontier.py` | Model C Γ 前沿扫描：网格化 (Γ_sla, Γ_sf) → 解每个预算组合 → 构建 Pareto 前沿 |
+| `run_routing_mode_ablation.py` | 路由模式消融：对比 hub / per_task_od / umcf_global / umcf_per_task |
+| `run_b4_main_table.py` | B4 主实验结果表（多 λ / Γ / ω / stress 条件） |
+| `progressive_pipeline.py` | 三阶段流水线：物理 CVaR 扫描 → TEAVAR SLA CVaR 扫描 → UMCF 对照 |
+| `p0_calibration.py` | η 标定：对给定 eta 搜索 demand_scale 使得 s1 下 feasible 条件恰好触发 |
+| `pareto_frontier.py` | 从扫描结果构建 Pareto 前沿并拟合 trade-off 曲线 |
+| `experiment_report.py` | 自动生成 LaTeX 表格 + matplotlib 图表 |
+
+#### 新推送到 `fix-sf-per-resource-normalization-ac` 分支的关键变更
+
+| 变更 | 文件 | 说明 |
+|:--|:--|:--|
+| **SF CVaR 按资源维分别归一化** | `cvar_compare.py` | 新增 `compute_sf_resource_refs()`：$\bar D_k = \max(\sum_i w_{ik}, 1)$。之前全局标量 D_ref 掩盖了 CPU/GPU/HBM 的不同尺度（CPU 10×GPU），改为每维独立归一化 |
+| **per_resource SF CVaR RU 连续形式** | `cvar_compare.py` | `add_compute_sf_cvar_ru()`：移除 Big-M 和辅助二元变量 $w_{ex}$，使用纯连续 RU 约束 $\phi_s \ge (D_{mk}-C_{mks})/\bar D_k - \zeta_{sf}$ |
+| **UMCF per-task 路由模式** | `b4_joint_data.py` | 新增 `attach_umcf_per_task()`：为每个任务 i 创建独立虚拟源 $V_s^{(i)}$ 和虚拟汇 $V_t^{(i)}$，保留物理 OD |
+| **Model C 支持 per_task_od** | `teavar_framework_models.py` | 原 Model B/D 仅支持 hub 径向，Model C 完整支持 per_task_od 路由（按 task_src/dst 构建流变量） |
+| **ToyTE 端到端多路径数据集** | `toy_te_data.py` | 全新设计：11 节点、24 边、3 ingress/egress 路径、共享瓶颈链路、异构算力 |
+| **独立组件故障场景生成** | `toy_two_task_independent_data.py` | 23 独立 Bernoulli 组件、产品分布场景、支持 pruned/exhaustive/aggregate_worst |
+| **L2 F1 对偶验证** | `l2_full_models.py` | M0.5 fixed-y primal/dual gap 验证 + M2 full embedded-y + exact McCormick dual×y |
+| **ComponentRisk 独立发布版** | `model_ac_component_risk_release/` | 剥离 duibi 依赖的精简版，含 3 个测试（exact validation / combined conflict / component risk） |
 
 ---
 
