@@ -63,6 +63,11 @@ Phase 2 后将随 Model A/C 一并移入 `legacy/duibi_p0_model_ac/`。
 3. **Phase 3** ✅：建立 `src/teavar_e2e/` 包结构，提升 refactor 代码，修复 import
 4. **Phase 4** ✅：新增主线实验入口（`run_e2e_mainline.py`、`run_m2_gamma_frontier.py`）
 5. **Phase 5** ✅：文档对齐（PROJECT_SUMMARY, MODEL_AUDIT, modeling.md, README）
+6. **Phase 6** ✅：最终审计（见 `docs/FINAL_AUDIT.md`）
+
+**审计结论**：PASS WITH DOCUMENTED WARNINGS
+**审计基线**：`c4b55ac`
+**审计日期**：2026-06-30
 
 ## 当前主线实验入口
 

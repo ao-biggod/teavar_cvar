@@ -106,7 +106,7 @@ def solve_m2_c_cost_once(
         "gamma": gamma,
         "status": status_str,
         "objective": _safe_float(result.objective),
-        "total_cost": _safe_float(result.cost_placement) + _safe_float(result.cost_bandwidth_expected),
+        "total_cost": _safe_float(float(result.cost_placement) + float(result.cost_bandwidth_expected)),
         "placement_cost": _safe_float(result.cost_placement),
         "bandwidth_cost": _safe_float(result.cost_bandwidth_expected),
         "cvar_e2e": _safe_float(result.cvar_value),
