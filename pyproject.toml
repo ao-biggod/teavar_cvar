@@ -1,0 +1,9 @@
+[project]
+name = "teavar-e2e"
+version = "0.1.0"
+description = "Risk-aware end-to-end traffic engineering with compute placement"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]

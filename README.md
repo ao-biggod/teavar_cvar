@@ -57,7 +57,7 @@ $$c_p = \sum_{i,m} y_{i,m} \sum_k w_i^{(k)} \rho_{m,k}, \qquad \mathbb{E}[c_b] =
 ├── PROJECT_SUMMARY.md               ← 项目参考论文与符号体系
 ├── MODEL_AUDIT.md                   ← 模型审计记录
 │
-├── src/teavar_e2e/                  ← ★ 当前主线代码（Phase 3 后启用）
+├── src/teavar_e2e/                  ← ★ 当前主线代码
 │   ├── data/                        ← 多路径玩具数据集
 │   ├── models/                      ← M0 / M1 / M2 / M2-C-Cost
 │   ├── risk/                        ← CVaR + 场景 pruning
@@ -95,11 +95,15 @@ $$c_p = \sum_{i,m} y_{i,m} \sum_k w_i^{(k)} \rho_{m,k}, \qquad \mathbb{E}[c_b] =
 # 依赖
 pip install gurobipy numpy networkx
 
-# 验证 M0 可运行（Phase 3 后）
-PYTHONPATH=src python src/teavar_e2e/experiments/run_m2_toy.py
+# 运行 M2-C-Cost smoke test（需要 Gurobi Academic license）
+PYTHONPATH=src python -m teavar_e2e.experiments.run_m2_toy \
+    --beta 0.95 --gamma 0.2 --max-failed-components 2
+
+# 运行主线 smoke tests
+PYTHONPATH=src python -m pytest tests/test_e2e_mainline_smoke.py -v
 ```
 
-详细运行说明和实验结果复现见 `legacy/experiment_scripts/` 下的旧脚本（历史参考）。
+详细运行说明和旧实验复现见 `legacy/experiment_scripts/`（历史参考）。
 
 ---
 
