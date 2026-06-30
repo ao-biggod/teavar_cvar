@@ -32,3 +32,14 @@ figures/
 
 # Temp files
 ~$*
+Untitled
+
+# Experiment outputs
+new_results/
+
+# Type checkers
+.mypy_cache/
+.ruff_cache/
+
+# Embedded repo (independent release, tracked separately)
+# model_ac_component_risk_release is an independent git repo — not tracked here.
