@@ -85,12 +85,21 @@
 
 ---
 
+## 当前主线实验入口（Phase 4+）
+
+| 文件 | 用途 |
+|:--|:--|
+| `src/teavar_e2e/experiments/run_e2e_mainline.py` | 单次 M2-C-Cost 运行 |
+| `src/teavar_e2e/experiments/run_m2_gamma_frontier.py` | Gamma 前沿扫描 |
+| `src/teavar_e2e/experiments/common.py` | 共享辅助函数（数据加载、求解封装、CSV 输出） |
+| `new_results/e2e_mainline/` | 本地输出目录（不进入 Git） |
+
 ## 不变更
 
 | 目录/文件 | 原因 |
 |:--|:--|
 | `data/` | 多拓扑实验数据（B4/ATT/Abilene/…），各实验线共用 |
 | `scripts/` | 审计/检查脚本 |
-| `model_ac_component_risk_release/` | 独立发布版不动 |
+| `model_ac_component_risk_release/` | 独立发布版（嵌入式 git repo，不跟踪） |
 | `.claude/` | Claude Code 项目配置 |
-| `refactor/` | 保留为开发快照，Phase 3 后不删除 |
+| `refactor/` | 保留为开发快照 |

@@ -93,17 +93,24 @@ $$c_p = \sum_{i,m} y_{i,m} \sum_k w_i^{(k)} \rho_{m,k}, \qquad \mathbb{E}[c_b] =
 
 ```bash
 # 依赖
-pip install gurobipy numpy networkx
+pip install -r requirements.txt
 
-# 运行 M2-C-Cost smoke test（需要 Gurobi Academic license）
-PYTHONPATH=src python -m teavar_e2e.experiments.run_m2_toy \
-    --beta 0.95 --gamma 0.2 --max-failed-components 2
+# 单次 M2-C-Cost 运行
+PYTHONPATH=src python -m teavar_e2e.experiments.run_e2e_mainline \
+    --beta 0.95 --gamma 0.5 --rho 0.9 --max-failed-components 2
 
-# 运行主线 smoke tests
-PYTHONPATH=src python -m pytest tests/test_e2e_mainline_smoke.py -v
+# Gamma 前沿扫描
+PYTHONPATH=src python -m teavar_e2e.experiments.run_m2_gamma_frontier \
+    --beta 0.95 --gamma-list 0.2,0.4,0.6,0.8,1.0 \
+    --rho 0.9 --max-failed-components 2
+
+# 运行 smoke tests
+PYTHONPATH=src python -m pytest tests/test_e2e_mainline_smoke.py tests/test_e2e_runner_smoke.py -v
 ```
 
-详细运行说明和旧实验复现见 `legacy/experiment_scripts/`（历史参考）。
+结果输出到 `new_results/e2e_mainline/`（不进入 Git）。
+
+旧 `run_gamma_frontier.py` 已归档到 `legacy/experiment_scripts/`，不再是当前主线入口。
 
 ---
 

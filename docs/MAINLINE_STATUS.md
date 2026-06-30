@@ -58,6 +58,19 @@ Phase 2 后将随 Model A/C 一并移入 `legacy/duibi_p0_model_ac/`。
 
 ## 迁移路线图
 
-1. **Phase 1**（当前）：文档先行，澄清主线
-2. **Phase 2**：旧代码归档到 `legacy/`，旧产物归档到 `archive/`
-3. **Phase 3**：建立 `src/teavar_e2e/` 包结构，提升 refactor 代码，修复 import
+1. **Phase 1** ✅：文档先行，澄清主线
+2. **Phase 2** ✅：旧代码归档到 `legacy/`，旧产物归档到 `archive/`
+3. **Phase 3** ✅：建立 `src/teavar_e2e/` 包结构，提升 refactor 代码，修复 import
+4. **Phase 4** ✅：新增主线实验入口（`run_e2e_mainline.py`、`run_m2_gamma_frontier.py`）
+
+## 当前主线实验入口
+
+```bash
+# 单次 M2-C-Cost 运行
+PYTHONPATH=src python -m teavar_e2e.experiments.run_e2e_mainline
+
+# Gamma 前沿扫描
+PYTHONPATH=src python -m teavar_e2e.experiments.run_m2_gamma_frontier
+```
+
+旧 `run_gamma_frontier.py` 已归档到 `legacy/experiment_scripts/`。

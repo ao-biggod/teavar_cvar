@@ -43,3 +43,4 @@ new_results/
 
 # Embedded repo (independent release, tracked separately)
 # model_ac_component_risk_release is an independent git repo — not tracked here.
+model_ac_component_risk_release/
