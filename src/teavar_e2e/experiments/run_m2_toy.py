@@ -47,7 +47,7 @@ def main(argv: list[str] | None = None) -> int:
     from teavar_e2e.data.toy_two_task_independent_data import (
         build_toy_2task_independent_v1,
     )
-    from teavar_e2e.models.m2_cost_models import solve_m2_c_cost
+    from teavar_e2e.models.m2_cost_models import build_m2_c_cost_model, solve_m2_c_cost
 
     print("Building Toy-2Task-Independent data ...")
     data = build_toy_2task_independent_v1(
@@ -55,17 +55,21 @@ def main(argv: list[str] | None = None) -> int:
         max_failed_components=args.max_failed_components,
         renormalize_probabilities=True,
     )
+    data.beta_cvar = args.beta
     print(f"  |I|={len(data.J)}  |M|={len(data.M)}  |S|={len(data.S)}  |K|={len(data.K)}")
     print(f"  dropped_probability_mass={data.scenario_metadata.get('dropped_probability_mass', 0):.6f}")
 
-    print(f"\nSolving M2-C-Cost (beta={args.beta}, gamma={args.gamma}) ...")
-    result = solve_m2_c_cost(
+    print(f"\nBuilding M2-C-Cost model (beta={args.beta}, gamma={args.gamma}) ...")
+    model = build_m2_c_cost_model(
         data,
         gamma=args.gamma,
-        beta_sf=args.beta,  # same beta for SLA
         time_limit=args.time_limit,
         mip_gap=args.mip_gap,
     )
+    print(f"  variables: {len(model.getVars())}, constraints: {len(model.getConstrs())}")
+
+    print("Solving ...")
+    result = solve_m2_c_cost(model)
 
     print(f"\n{'='*60}")
     print(f"  status               = {result.status}")
